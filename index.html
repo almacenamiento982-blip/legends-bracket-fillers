@@ -34,7 +34,7 @@ ul{margin:4px 0 0 18px;padding:0;font-size:14.5px;color:var(--gris)}
 </style></head><body><div class="wrap">
 <div class="eb">Legends Cup 2026 · Correo para aprobar</div>
 <h1>30 % off para equipos U12 Girls Silver (bracket fillers)</h1>
-<p class="sub">Correo <b>aprobado por Alessandro (29-10)</b> con sus 6 respuestas ya aplicadas. Falta solo una cosa: <b>cómo se aplica el 30 %</b> (lo resaltado en amarillo). Elige una opción abajo y toca "Copiar respuesta" para pegarla por WhatsApp.</p>
+<p class="sub">Correo <b>final</b>, aprobado por Alessandro (29-10) con sus 7 respuestas aplicadas. Está como <b>borrador</b> en Constant Contact; sale el viernes 30-oct a las 10:00 a. m. (hora del Este) cuando David lo apruebe y Samir haya bajado el precio en GotSport.</p>
 <div class="grid">
  <div>
   <div class="vistas"><button type="button" class="on" data-w="100%">Computador</button><button type="button" data-w="390px">Celular</button></div>
@@ -62,21 +62,14 @@ ul{margin:4px 0 0 18px;padding:0;font-size:14.5px;color:var(--gris)}
    <div class="dato"><span>4. Precio</span><b>&#10003; No se muestra; solo "30% off"</b></div>
    <div class="dato"><span>5. Vigencia</span><b>&#10003; Hasta llenar el cuadro (sin fecha)</b></div>
    <div class="dato"><span>6. Asunto</span><b>&#10003; A</b></div>
+   <div class="dato"><span>3. Cómo se aplica</span><b>&#10003; Samir baja el precio de la división en GotSport (sin código)</b></div>
    <div class="dato"><span>7. Envío</span><b>&#10003; Viernes 30-oct, 10:00 a. m. ET</b></div>
    <div class="dato"><span>Correo</span><b>&#10003; Aprobado</b></div>
   </div>
   <div class="caja">
-   <h2>Falta: ¿cómo se aplica el 30 %?</h2>
-   <div class="item" data-k="como"><p class="q">3. En la respuesta quedó "Otro" sin explicar.</p><p class="d">El correo no pide que respondan: el club tiene que poder inscribirse solo en GotSport y recibir el descuento. ¿Cuál de estas opciones?</p>
-    <div class="op" style="flex-direction:column;align-items:stretch">
-     <label><input type="radio" name="como" value="A) Código de descuento en GotSport (Alessandro lo crea y pasa el código)"> A) Código de descuento en GotSport: lo creas y nos pasas el código</label>
-     <label><input type="radio" name="como" value="B) El club escribe LEGENDS30 en las notas de inscripción y se descuenta al aprobar el equipo"> B) El club escribe "LEGENDS30" en las notas de la inscripción y se descuenta al aprobar el equipo</label>
-     <label><input type="radio" name="como" value="C) Se baja el precio de la división U12 Girls Silver en GotSport (ya sale con el 30 % aplicado)"> C) Bajar el precio de la división U12 Girls Silver en GotSport (ya sale con el 30 %)</label>
-     <label><input type="radio" name="como" value="Otro (explicar en notas)"> Otro (explicar abajo)</label>
-    </div>
-    <textarea id="notas" placeholder="Código, o cómo se hace…"></textarea></div>
-   <button type="button" class="btn" id="copiar">Copiar respuesta</button>
-   <div id="est"></div>
+   <h2>Antes de enviar</h2>
+   <div class="dato"><span>Samir</span><b>Bajar el precio de U12 Girls Silver (D2) en GotSport</b></div>
+   <div class="dato"><span>David</span><b>"Aprobado publícalo" para programarlo</b></div>
   </div>
  </div>
 </div>
@@ -85,16 +78,5 @@ ul{margin:4px 0 0 18px;padding:0;font-size:14.5px;color:var(--gris)}
 const fr=document.getElementById('correo');
 document.querySelectorAll('.vistas button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.vistas button').forEach(x=>x.classList.remove('on'));b.classList.add('on');fr.style.width=b.dataset.w;});
 fr.addEventListener('load',()=>{try{fr.style.height=(fr.contentDocument.body.scrollHeight+20)+'px'}catch(e){}});
-const K='legends_bracket_fillers_v2';let S={};try{S=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
-const guardar=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
-document.querySelectorAll('input[type=radio]').forEach(r=>{if(S[r.name]===r.value)r.checked=true;r.onchange=()=>{S[r.name]=r.value;guardar();};});
-const nt=document.getElementById('notas');nt.value=S.notas||'';nt.oninput=()=>{S.notas=nt.value;guardar();};
-const Q=[['como','3. Cómo se aplica el 30 %']];
-document.getElementById('copiar').onclick=()=>{
- const t=['CORREO LEGENDS U12 GIRLS SILVER 30% — respuesta pendiente de Alessandro'].concat(Q.map(([k,n])=>n+': '+(S[k]||'—'))).concat(S.notas?['Comentarios: '+S.notas]:[]).join('
-');
- const est=document.getElementById('est');
- navigator.clipboard.writeText(t).then(()=>est.textContent='Copiado. Pégalo en WhatsApp.').catch(()=>{nt.value=t;nt.select();est.textContent='Selecciona el texto de la casilla y cópialo.';});
-};
 </script>
 </body></html>
